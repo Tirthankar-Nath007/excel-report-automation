@@ -1,0 +1,32 @@
+services:
+  report-frontend:
+    build: ./frontend
+    container_name: report-frontend
+    ports:
+      - "8090:80"
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - report_net
+
+  report-backend:
+    build: ./app
+    container_name: report-backend
+    env_file:
+      - .env
+    restart: unless-stopped
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - report_net
+
+networks:
+  report_net:
+    driver: bridge
