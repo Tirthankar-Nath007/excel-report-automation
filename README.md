@@ -226,3 +226,91 @@ Validation shows `✓ Complete` or `⚠ Missing N date(s)` with the exact missin
 No code changes are required to support new portfolios. Portfolio names are derived entirely from filenames at runtime. To add a new portfolio, simply upload files whose names contain the new portfolio segment (e.g. `tvsCreditSCV` → detected as `scv`).
 
 To improve folder-name detection for a new portfolio, add an entry to `_FOLDER_MAP` in [app/services/portfolio_detection.py](app/services/portfolio_detection.py).
+
+```
+excel-automation
+├─ app
+│  ├─ Dockerfile
+│  ├─ main.py
+│  ├─ models
+│  │  ├─ report.py
+│  │  └─ __init__.py
+│  ├─ schemas
+│  │  └─ __init__.py
+│  ├─ services
+│  │  ├─ excel_export.py
+│  │  ├─ portfolio_detection.py
+│  │  ├─ report_merge.py
+│  │  ├─ report_processing.py
+│  │  ├─ validation.py
+│  │  └─ __init__.py
+│  ├─ utils
+│  │  ├─ filename_parser.py
+│  │  └─ __init__.py
+│  └─ __init__.py
+├─ docker-compose.yml
+├─ frontend
+│  ├─ Dockerfile
+│  ├─ eslint.config.js
+│  ├─ index.html
+│  ├─ nginx.conf
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ public
+│  │  ├─ favicon.svg
+│  │  └─ icons.svg
+│  ├─ README.md
+│  ├─ src
+│  │  ├─ App.css
+│  │  ├─ App.tsx
+│  │  ├─ assets
+│  │  │  ├─ hero.png
+│  │  │  ├─ react.svg
+│  │  │  └─ vite.svg
+│  │  ├─ components
+│  │  │  ├─ ui
+│  │  │  │  ├─ Alert.tsx
+│  │  │  │  ├─ Badge.tsx
+│  │  │  │  ├─ Button.tsx
+│  │  │  │  └─ Spinner.tsx
+│  │  │  ├─ upload
+│  │  │  │  ├─ FileDropZone.tsx
+│  │  │  │  ├─ FileListItem.tsx
+│  │  │  │  └─ FolderInput.tsx
+│  │  │  └─ validation
+│  │  │     └─ ValidationPanel.tsx
+│  │  ├─ hooks
+│  │  │  ├─ useFolderProcess.ts
+│  │  │  ├─ useMergeReports.ts
+│  │  │  ├─ useProcessReports.ts
+│  │  │  └─ useValidation.ts
+│  │  ├─ index.css
+│  │  ├─ main.tsx
+│  │  ├─ pages
+│  │  │  ├─ FolderUploadPage.tsx
+│  │  │  ├─ MergeReports.tsx
+│  │  │  └─ TransactionUpload.tsx
+│  │  ├─ services
+│  │  │  └─ api.ts
+│  │  ├─ types
+│  │  │  └─ index.ts
+│  │  └─ utils
+│  │     ├─ download.ts
+│  │     └─ portfolioDetection.ts
+│  ├─ tsconfig.app.json
+│  ├─ tsconfig.json
+│  ├─ tsconfig.node.json
+│  └─ vite.config.ts
+├─ README.md
+├─ requirements.txt
+├─ scripts
+│  └─ phase-1.py
+├─ src
+│  ├─ formatter.py
+│  ├─ main.py
+│  ├─ models.py
+│  └─ processor.py
+└─ tests
+   └─ test_processor.py
+
+```
