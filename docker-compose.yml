@@ -14,7 +14,10 @@ services:
       - report_net
 
   report-backend:
-    build: ./app
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+
     container_name: report-backend
     env_file:
       - .env
